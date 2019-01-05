@@ -1,4 +1,8 @@
-class App extends React.Component {
+import React, { Component } from "react";
+import { render } from "react-dom";
+import Pet from "./Pet";
+
+class App extends Component {
   handleTitleClick() {
     alert("You clicked the title");
   }
@@ -31,4 +35,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+render(React.createElement(App), document.getElementById("root"));
