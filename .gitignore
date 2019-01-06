@@ -24,4 +24,5 @@ chrome-user-data
 *.swo
 
 .cache
+.env
 dist/
