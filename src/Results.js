@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Consumer } from "./SearchContext";
+import Search from "./Search";
 import pf from "petfinder-client";
 import Pet from "./Pet";
 
@@ -13,10 +15,16 @@ class Results extends Component {
   };
 
   componentDidMount() {
+    this.search();
+  }
+
+  search = () => {
     petfinder.pet
       .find({
         output: "full",
-        location: "Seattle, WA"
+        location: this.props.searchParams.location,
+        animal: this.props.searchParams.animal,
+        breed: this.props.searchParams.breed
       })
       .then(data => {
         let pets;
@@ -35,11 +43,12 @@ class Results extends Component {
           pets
         });
       });
-  }
+  };
 
   render() {
     return (
       <div className="search">
+        <Search search={this.search} />
         {this.state.pets.map(pet => {
           let breed;
 
@@ -66,4 +75,10 @@ class Results extends Component {
   }
 }
 
-export default Results;
+export default function ResultsWithContext(props) {
+  return (
+    <Consumer>
+      {context => <Results {...props} searchParams={context} />}
+    </Consumer>
+  );
+}
