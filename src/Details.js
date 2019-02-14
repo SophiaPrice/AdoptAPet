@@ -58,6 +58,20 @@ class Details extends Component {
     }
 
     const { name, animal, breed, location, description, media, showModal } = this.state;
+    let modal;
+
+    if(showModal) {
+      modal = 
+      <Modal>
+        <h1>Would you like to adopt {name}?</h1>
+        <div className="buttons">
+          <button onClick={this.toggleModal}>Yes!</button>
+          <button onClick={this.toggleModal}>Cancel</button>
+        </div>
+      </Modal>
+    } else {
+      modal = null;
+    }
 
     return (
       <div className="details">
@@ -69,18 +83,7 @@ class Details extends Component {
           </h2>
           <button onClick={this.toggleModal}>Adopt {name}</button>
           <p>{description}</p>
-          {/* Inline */}
-          {
-            showModal ? (
-              <Modal>
-                <h1>Would you like to adopt {name}?</h1>
-                <div className="buttons">
-                  <button onClick={this.toggleModal}>Yes!</button>
-                  <button onClick={this.toggleModal}>Cancel</button>
-                </div>
-              </Modal>
-            ) : null
-          }
+          {modal}
         </div>
       </div>
     );
