@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import pf from "petfinder-client";
+import Loadable from "react-loadable";
 import Carousel from "./Carousel";
-import Modal from './Modal';
+import Modal from "./Modal";
 
 const petfinder = pf({
   key: process.env.API_KEY,
   secret: process.env.API_SECRET
+});
+
+const loading = () => <h1>Loading Content...</h1>;
+
+const LoadableContent = Loadable({
+  loader: () => import("./AdoptModalContent"),
+  loading
 });
 
 class Details extends Component {
@@ -50,14 +58,22 @@ class Details extends Component {
     this.setState({
       showModal: !this.state.showModal
     });
-  }
+  };
 
   render() {
     if (this.state.loading) {
       return <h1>Loading</h1>;
     }
 
-    const { name, animal, breed, location, description, media, showModal } = this.state;
+    const {
+      name,
+      animal,
+      breed,
+      location,
+      description,
+      media,
+      showModal
+    } = this.state;
 
     return (
       <div className="details">
@@ -69,17 +85,11 @@ class Details extends Component {
           </h2>
           <button onClick={this.toggleModal}>Adopt {name}</button>
           <p>{description}</p>
-          {
-            showModal ? (
-              <Modal>
-                <h1>Would you like to adopt {name}?</h1>
-                <div className="buttons">
-                  <button onClick={this.toggleModal}>Cancel</button>
-                  <button onClick={this.toggleModal}>Yes!</button>
-                </div>
-              </Modal>
-            ) : null
-          }
+          {showModal ? (
+            <Modal>
+              <LoadableContent toggleModal={this.toggleModal} name={name} />
+            </Modal>
+          ) : null}
         </div>
       </div>
     );

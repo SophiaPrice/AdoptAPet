@@ -12,8 +12,9 @@
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json} \"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
     "dev": "parcel src/index.html",
-    "precommit": "npm-run-all lint test",
-    "prepush": "npm-run-all lint test"
+    "validate": "npm-run-all format lint test",
+    "precommit": "npm run validate",
+    "prepush": "npm run validate"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "react-test-renderer": "^16.8.1"
   },
   "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
     "@reach/router": "^1.2.1",

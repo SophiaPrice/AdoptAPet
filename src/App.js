@@ -90,7 +90,7 @@ class App extends Component {
             });
           }
         })
-        .catch(console.error);
+        .catch(console.error); // eslint-disable-line
     } else {
       this.setState({
         breeds: []
