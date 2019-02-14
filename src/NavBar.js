@@ -14,11 +14,6 @@ const NavLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
-
-  span {
-    display: inline-block;
-    border: 1px solid red;
-  }
 `;
 
 const NavBar = () => (
