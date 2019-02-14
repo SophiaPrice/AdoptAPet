@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:update": "jest -u",
+    "test:watch": "jest --watch",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json} \"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json} \"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
