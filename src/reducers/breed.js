@@ -1,7 +1,9 @@
+import { SET_ANIMAL, SET_BREED } from "../actions";
+
 export default function breedReducer(state = "", action) {
-  if (action.type === "SET_BREED") {
+  if (action.type === SET_BREED) {
     return action.payload;
-  } else if (action.type === "SET_ANIMAL") {
+  } else if (action.type === SET_ANIMAL) {
     return "";
   } else {
     return state;

@@ -1,4 +1,5 @@
 import pf from "petfinder-client";
+import { SET_BREEDS } from "../actions";
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -22,12 +23,12 @@ export default function getBreeds() {
             Array.isArray(data.petfinder.breeds.breed)
           ) {
             dispatch({
-              type: "SET_BREEDS",
+              type: SET_BREEDS,
               payload: data.petfinder.breeds.breed
             });
           } else {
             dispatch({
-              type: "SET_BREEDS",
+              type: SET_BREEDS,
               payload: []
             });
           }
@@ -35,7 +36,7 @@ export default function getBreeds() {
         .catch(console.error); // eslint-disable-line
     } else {
       dispatch({
-        type: "SET_BREEDS",
+        type: SET_BREEDS,
         payload: []
       });
     }

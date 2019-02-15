@@ -1,9 +1,10 @@
+import { SET_LOCATION } from "../../actions";
 import locationReducer from "../../reducers/location";
 
 test("locationReducer", () => {
   expect(
     locationReducer("Seattle, WA", {
-      type: "SET_LOCATION",
+      type: SET_LOCATION,
       payload: "San Francisco, CA"
     })
   ).toBe("San Francisco, CA");
