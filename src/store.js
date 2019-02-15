@@ -8,7 +8,7 @@ const store = createStore(
     applyMiddleware(thunk), // allows async with redux
     // allows redux devTools
     typeof window === "object" &&
-      typeof window.devToolsExtension !== "undefined"
+      typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== "undefined"
       ? window.devToolsExtension()
       : f => f
   )
