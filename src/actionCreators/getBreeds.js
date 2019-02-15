@@ -6,8 +6,9 @@ const petfinder = pf({
 });
 
 export default function getBreeds() {
+  // returned function is thunk
   return function getBreedsThunk(dispatch, getState) {
-    const { animal } = getState;
+    const { animal } = getState();
 
     if (animal) {
       petfinder.breed
