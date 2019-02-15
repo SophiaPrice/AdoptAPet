@@ -1,4 +1,4 @@
-import locationReducer from "../reducers/location";
+import locationReducer from "../../reducers/location";
 
 test("locationReducer", () => {
   expect(
