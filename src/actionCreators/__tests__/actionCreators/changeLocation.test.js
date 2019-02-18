@@ -1,4 +1,4 @@
-import changeLocation from "../../actionCreators/changeLocation";
+import changeLocation from "../../changeLocation";
 
 test("changeLocation snapshot", () => {
   expect(changeLocation("Seattle, WA")).toMatchSnapshot();

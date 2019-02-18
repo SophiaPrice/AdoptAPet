@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Search from "./Search";
+import Search from "../Search";
 import pf from "petfinder-client";
-import Pet from "./Pet";
+import Pet from "../Pet";
 
 const petfinder = pf({
   key: process.env.API_KEY,

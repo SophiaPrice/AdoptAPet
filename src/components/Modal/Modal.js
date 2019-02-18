@@ -3,9 +3,10 @@ import { Component } from "react";
 import { createPortal } from "react-dom";
 
 class Modal extends Component {
+  modalRoot = document.getElementById("modal");
+  el = document.createElement("div");
+
   componentDidMount() {
-    this.modalRoot = document.getElementById("modal");
-    this.el = document.createElement("div");
     this.modalRoot.appendChild(this.el);
   }
 

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import pf from "petfinder-client";
 import Loadable from "react-loadable";
-import Carousel from "./Carousel";
-import Modal from "./Modal";
+import Carousel from "../Carousel";
+import Modal from "../Modal";
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -13,7 +13,7 @@ const petfinder = pf({
 const loading = () => <h1>Loading Content...</h1>;
 
 const LoadableContent = Loadable({
-  loader: () => import("./AdoptModalContent"),
+  loader: () => import("../AdoptModalContent"),
   loading
 });
 

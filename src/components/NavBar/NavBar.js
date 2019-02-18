@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import styled from "@emotion/styled";
-import colors from "./colors";
+import colors from "../../colors";
 
 const Header = styled.header`
   background-color: ${colors.dark};

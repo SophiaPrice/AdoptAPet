@@ -1,5 +1,5 @@
 import { SET_LOCATION } from "../../actions";
-import locationReducer from "../../reducers/location";
+import locationReducer from "../location";
 
 test("locationReducer", () => {
   expect(

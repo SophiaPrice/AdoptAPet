@@ -2,25 +2,25 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import { Provider } from "react-redux";
 import Loadable from "react-loadable";
-import NavBar from "./NavBar";
-import store from "./store";
+import NavBar from "../NavBar";
+import store from "../../store";
 
 const LoadableDetails = Loadable({
-  loader: () => import("./Details"),
+  loader: () => import("../Details"),
   loading() {
     return <h1>loading split out code ...</h1>;
   }
 });
 
 const LoadableResults = Loadable({
-  loader: () => import("./Results"),
+  loader: () => import("../Results"),
   loading() {
     return <h1>loading split out code ...</h1>;
   }
 });
 
 const LoadableSearchParams = Loadable({
-  loader: () => import("./SearchParams"),
+  loader: () => import("../SearchParams"),
   loading() {
     return <h1>loading split out code ...</h1>;
   }
