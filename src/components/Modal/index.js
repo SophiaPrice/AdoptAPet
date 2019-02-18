@@ -1,3 +1,3 @@
-import Modal from "./Modal";
+var Modal = require("./Modal");
 
 export default Modal;

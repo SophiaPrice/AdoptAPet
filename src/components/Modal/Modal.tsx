@@ -6,13 +6,13 @@ class Modal extends Component {
   modalRoot = document.getElementById("modal");
   el = document.createElement("div");
 
-  componentDidMount() {
-    this.modalRoot.appendChild(this.el);
+  public componentDidMount() {
+    if (this.modalRoot) this.modalRoot.appendChild(this.el);
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     // Prevents memory leaks
-    this.modalRoot.removeChild(this.el);
+    if (this.modalRoot) this.modalRoot.removeChild(this.el);
   }
 
   render() {
